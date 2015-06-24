@@ -1,4 +1,3 @@
-
 var rest = require('restler'),
 	math = require('mathjs');
 
@@ -11,7 +10,6 @@ if(process.argv[2]) {
 }
 
 TelegramBot = rest.service(function() {}, { baseURL: API_URL + 'bot' + API_KEY + '/' });
-
 var client = new TelegramBot();
 
 function telegramBotApi(path, data, fn) {
@@ -23,11 +21,6 @@ function telegramBotApi(path, data, fn) {
 	}
 	client.get(path, { data: data }).on('complete', fn);
 }
-
-// Print the name of the bot
-telegramBotApi('getMe', {}, function(obj) {
-	console.log('# ' + obj.result.username + ' #');
-});
 
 function getUpdate(data, fn) {
 	telegramBotApi('getUpdates', data, function(obj) {
@@ -46,21 +39,22 @@ function sendMessage(data, fn) {
 	telegramBotApi('sendMessage', data, fn);
 }
 
+// Print the name of the bot
+telegramBotApi('getMe', {}, function(obj) {
+	console.log('# ' + obj.result.username + ' #');
+});
+
 // When new message (handler)
 getUpdate({ timeout: 60000, limit: 5 }, function(res) {
-	console.log(res[0]);
-
 	var text = res[0].message.text;
 	var chatId = res[0].message.chat.id;
 
 	var result = '';
 
-
 	if(text) {
 		// Bot specificaly (for groups)
 		if(text[0] === '@') {
 			text = text.substr(text.indexOf(' ') + 1);
-
 		}
 
 		if(text.substr(0, 2) === '!=') {
