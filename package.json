@@ -1,0 +1,22 @@
+{
+  "name": "calculatorbot",
+  "version": "0.1.0",
+  "description": "Simple telegram calculator bot",
+  "main": "index.js",
+  "dependencies": {
+    "restler": "^3.2.2",
+    "mathjs": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calc",
+    "math",
+    "telegram",
+    "bot"
+  ],
+  "author": "Fabien Sa",
+  "license": "MIT"
+}
