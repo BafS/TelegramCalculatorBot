@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "restler": "^3.2.2",
-    "mathjs": "^1.7.0"
+    "mathjs": "^6.2.3"
   },
   "devDependencies": {},
   "scripts": {
